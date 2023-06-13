@@ -1,0 +1,49 @@
+{
+  "name": "@real-wagmi/v3-sdk",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "vitest --run",
+    "coverage": "vitest run --coverage",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "repository": "https://github.com/RealWagmi/v3-sdk.git",
+  "author": "Wagmi",
+  "keywords": [
+    "wagmi",
+    "ethereum"
+  ],
+  "module": "dist/v3-sdk.esm.js",
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@types/debug": "^4.1.8",
+    "@types/lodash": "^4.14.195",
+    "debug": "^4.3.4",
+    "husky": "^8.0.3",
+    "size-limit": "^8.2.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.5.3",
+    "typescript": "^5.1.3",
+    "vitest": "^0.32.0"
+  },
+  "dependencies": {
+    "@real-wagmi/sdk": "^1.0.3",
+    "viem": "^1.0.5"
+  }
+}
