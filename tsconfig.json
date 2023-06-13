@@ -1,7 +1,9 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "include": ["src", "types"],
+  "exclude": ["**/*.test.ts", "./dist/**"],
   "compilerOptions": {
+    "outDir": "./dist",
     "module": "esnext",
     "target": "es2020",
     "lib": ["dom", "esnext"],
@@ -30,7 +32,5 @@
     "skipLibCheck": true,
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
-    // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noEmit": true,
   }
 }
