@@ -5,7 +5,6 @@ import { Pool } from './entities/pool';
 import { Staker } from './staker';
 import { NonfungiblePositionManager } from './nonfungible-position-manager';
 import { encodeSqrtRatioX96 } from './utils/encode-sqrt-ratio-x96';
-import { Address } from 'viem';
 
 describe.skip('Staker', () => {
     const reward = new Token(1, '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', 18, 'r', 'reward');
@@ -19,7 +18,7 @@ describe.skip('Staker', () => {
         pool: pool_0_1,
         startTime: 100,
         endTime: 200,
-        refundee: '0x0000000000000000000000000000000000000001' as Address,
+        refundee: '0x0000000000000000000000000000000000000001',
     };
 
     const incentiveKeys = [incentiveKey];
@@ -31,8 +30,8 @@ describe.skip('Staker', () => {
         refundee: '0x0000000000000000000000000000000000000089',
     });
 
-    const recipient = '0x0000000000000000000000000000000000000003' as Address;
-    const sender = '0x0000000000000000000000000000000000000004' as Address;
+    const recipient = '0x0000000000000000000000000000000000000003';
+    const sender = '0x0000000000000000000000000000000000000004';
     const tokenId = 1;
 
     describe('#collectRewards', () => {
@@ -124,7 +123,7 @@ describe.skip('Staker', () => {
 
     describe('#safeTransferFrom with correct data for staker', () => {
         it('succeeds', () => {
-            const data = Staker.encodeDeposit(incentiveKey) as Address;
+            const data = Staker.encodeDeposit(incentiveKey);
 
             const options = {
                 sender,

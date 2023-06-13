@@ -5,7 +5,6 @@ import { Pool } from './entities/pool';
 import { Position } from './entities/position';
 import { NonfungiblePositionManager } from './nonfungible-position-manager';
 import { encodeSqrtRatioX96 } from './utils/encode-sqrt-ratio-x96';
-import { Address } from 'viem';
 
 describe('NonfungiblePositionManager', () => {
     const token0 = new Token(250, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0');
@@ -16,8 +15,8 @@ describe('NonfungiblePositionManager', () => {
     const pool_0_1 = new Pool(token0, token1, fee, encodeSqrtRatioX96(1, 1), 0, 0, []);
     const pool_1_weth = new Pool(token1, WETH9[250], fee, encodeSqrtRatioX96(1, 1), 0, 0, []);
 
-    const recipient = '0x0000000000000000000000000000000000000003' as Address;
-    const sender = '0x0000000000000000000000000000000000000004' as Address;
+    const recipient = '0x0000000000000000000000000000000000000003';
+    const sender = '0x0000000000000000000000000000000000000004';
     const tokenId = 1;
     const slippageTolerance = new Percent(1, 100);
     const deadline = 123;
@@ -364,7 +363,7 @@ describe('NonfungiblePositionManager', () => {
             expect(value).toEqual('0x00');
         });
         it('succeeds data param', () => {
-            const data = '0x0000000000000000000000000000000000009004' as Address;
+            const data = '0x0000000000000000000000000000000000009004';
             const options = {
                 sender,
                 recipient,
