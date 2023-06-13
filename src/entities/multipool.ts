@@ -4,7 +4,7 @@ import { computePoolAddress } from '../utils';
 import invariant from 'tiny-invariant';
 import { Address } from 'viem'
 
-export class Concentrator {
+export class Multipool {
     public readonly address: Address;
 
     public readonly liquidityToken: Currency;
