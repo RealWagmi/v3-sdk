@@ -20,7 +20,7 @@
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
