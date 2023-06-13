@@ -1368,10 +1368,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@real-wagmi/sdk@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@real-wagmi/sdk/-/sdk-1.0.3.tgz#790d934069f6ab5e4a0ae47688cd8b08dab89606"
-  integrity sha512-EPM1MH5RKFUYQkTFWK+h6i9h/akrhkOd+cpOTenzGJYnGLtGM5nWDwUflcqRoX9qUCc8fQIMRm3Gqk17MGumRQ==
+"@real-wagmi/sdk@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@real-wagmi/sdk/-/sdk-1.0.6.tgz#ee5f9cf5f3624cabe140dd1c06c495f944557464"
+  integrity sha512-o5G0YZmSt3lmslZ29zJy5RxxI0N6CZBhtbeGOEQfoerac3M7C5isr55GCnZ1KlYZA2Y3S2aR27NWO6cgh6c2Cw==
   dependencies:
     big.js "^6.2.1"
     decimal.js-light "^2.5.1"

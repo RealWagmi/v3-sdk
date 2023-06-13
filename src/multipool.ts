@@ -1,6 +1,6 @@
 import { CurrencyAmount, Currency, BigintIsh, Token } from '@real-wagmi/sdk';
-import { FeeAmount } from '../constants';
-import { computePoolAddress } from '../utils';
+import { FeeAmount } from './constants';
+import { computePoolAddress } from './utils';
 import invariant from 'tiny-invariant';
 import { Address } from 'viem'
 

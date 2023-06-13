@@ -43,7 +43,7 @@
     "vitest": "^0.32.0"
   },
   "dependencies": {
-    "@real-wagmi/sdk": "^1.0.3",
+    "@real-wagmi/sdk": "^1.0.6",
     "viem": "^1.0.5"
   }
 }
