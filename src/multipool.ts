@@ -18,7 +18,7 @@ export class Multipool {
         ? [currencyAmountA, tokenAmountB]
         : [tokenAmountB, currencyAmountA]
         this.tokenAmounts = tokenAmounts as [CurrencyAmount<Currency>, CurrencyAmount<Currency>]
-        this.liquidityToken = new Token(this.chainId, address, 18, `${this.token0}/${this.token1} WLP`, `Wagmi LP ${this.token0}/${this.token1}`);
+        this.liquidityToken = new Token(this.chainId, address, 18, `${this.token0.symbol}/${this.token1.symbol} WLP`, `Wagmi LP ${this.token0.symbol}/${this.token1.symbol}`);
         this.fees = fees;
         this.totalSupply = BigInt(totalSupply);
     }
