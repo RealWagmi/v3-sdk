@@ -12,11 +12,11 @@ export class Multipool {
     private readonly fees: FeeAmount[];
     private readonly totalSupply: bigint;
 
-    public constructor(address: Address, fees: FeeAmount[], totalSupply: BigintIsh, currencyAmountA: CurrencyAmount<Currency>, tokenAmountB: CurrencyAmount<Currency>) {
+    public constructor(address: Address, fees: FeeAmount[], totalSupply: BigintIsh, currencyAmountA: CurrencyAmount<Currency>, currencyAmountB: CurrencyAmount<Currency>) {
         this.address = address;
-        const tokenAmounts = currencyAmountA.currency.wrapped.sortsBefore(tokenAmountB.currency.wrapped)
-        ? [currencyAmountA, tokenAmountB]
-        : [tokenAmountB, currencyAmountA]
+        const tokenAmounts = currencyAmountA.currency.wrapped.sortsBefore(currencyAmountB.currency.wrapped)
+        ? [currencyAmountA, currencyAmountB]
+        : [currencyAmountB, currencyAmountA]
         this.tokenAmounts = tokenAmounts as [CurrencyAmount<Currency>, CurrencyAmount<Currency>]
         this.liquidityToken = new Token(this.chainId, address, 18, `${this.token0.symbol}/${this.token1.symbol} WLP`, `Wagmi LP ${this.token0.symbol}/${this.token1.symbol}`);
         this.fees = fees;
