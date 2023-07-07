@@ -1,6 +1,6 @@
 import { Percent } from '@real-wagmi/sdk';
 
-const FEE_BASE = 10n ** 4n;
+const FEE_BASE = BigInt('10000'); //10n ** 4n;
 
 export function parseProtocolFees(feeProtocol: number | string) {
     const packed = Number(feeProtocol);
