@@ -8,6 +8,7 @@ describe('MultipoolPosition', () => {
         it('return amounts', () => {
             const multipool = new Multipool(
                 zeroAddress,
+                zeroAddress,
                 [],
                 '1000',
                 CurrencyAmount.fromRawAmount(fantomTokens.usdc, '100'),
