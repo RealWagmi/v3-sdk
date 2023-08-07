@@ -7,7 +7,7 @@ function mulShift(val: bigint, mulBy: string): bigint {
     return (val * BigInt(mulBy)) >> 128n;
 }
 
-const Q32 = BigInt('4294967296'); //2n ** 32n;
+const Q32 = 2n ** 32n;
 
 export abstract class TickMath {
     /**

@@ -26,11 +26,11 @@ export const ZERO = 0n;
 export const ONE = 1n;
 
 // used in liquidity amount math
-export const Q96 = BigInt('79228162514264337593543950336'); //2n ** 96n;
-export const Q192 = BigInt('6277101735386680763835789423207666416102355444464034512896'); //Q96 ** 2n;
+export const Q96 = 2n ** 96n;
+export const Q192 = Q96 ** 2n;
 
 // used in fee calculation
-export const MAX_FEE = BigInt('1000000'); //10n ** 6n;
+export const MAX_FEE = 10n ** 6n;
 export const ONE_HUNDRED_PERCENT = new Percent('1');
 export const ZERO_PERCENT = new Percent('0');
-export const Q128 = BigInt('340282366920938463463374607431768211456'); //2n ** 128n;
+export const Q128 = 2n ** 128n;

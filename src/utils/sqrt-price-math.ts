@@ -3,7 +3,7 @@ import invariant from 'tiny-invariant';
 import { ONE, ZERO, Q96 } from '../constants/misc';
 import { FullMath } from './full-math';
 
-const MaxUint160 = BigInt('1461501637330902918203684832716283019655932542976') - ONE; //2n ** 160n - ONE;
+const MaxUint160 = 2n ** 160n - ONE;
 
 function multiplyIn256(x: bigint, y: bigint): bigint {
     const product = x * y;

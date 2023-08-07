@@ -19,7 +19,7 @@ import { Pool } from './entities'
 import { Multicall } from './multicall'
 import { Payments } from './payments'
 
-export const MaxUint128 = BigInt("340282366920938463463374607431768211456") - 1n //2n ** 128n - 1n
+export const MaxUint128 = 2n ** 128n - 1n
 
 export interface MintSpecificOptions {
   /**
