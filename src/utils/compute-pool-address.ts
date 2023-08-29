@@ -24,10 +24,10 @@ function getCreate2Address(from_: GetCreate2AddressOptions['from'], salt_: GetCr
 }
 
 export function computePoolAddress({ chainId, tokenA, tokenB, fee }: Props): Address {
-    if (chainId !== ChainId.ZK_SYNC) {
+    if (chainId !== ChainId.ZKSYNC) {
         const [token0, token1] = tokenA.wrapped.sortsBefore(tokenB.wrapped) ? [tokenA, tokenB] : [tokenB, tokenA];
         const salt = keccak256(encodeAbiParameters(parseAbiParameters('address, address, uint24'), [token0.wrapped.address, token1.wrapped.address, fee]));
-        return getCreate2Address(V3_CORE_FACTORY_ADDRESSES[chainId], salt, POOL_INIT_CODE_HASH);
+        return getCreate2Address(V3_CORE_FACTORY_ADDRESSES[chainId]!, salt, POOL_INIT_CODE_HASH);
     }
 
     return computePoolAddressZkSync({ tokenA, tokenB, fee });

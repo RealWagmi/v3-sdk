@@ -23,6 +23,6 @@ interface Props {
 export function computePoolAddressZkSync({ tokenA, tokenB, fee }: Props): Address {
     const [token0, token1] = tokenA.wrapped.sortsBefore(tokenB.wrapped) ? [tokenA, tokenB] : [tokenB, tokenA]; // does safety checks
     const salt = keccak256(encodeAbiParameters(parseAbiParameters('address, address, uint24'), [token0.wrapped.address, token1.wrapped.address, fee]));
-    const addressBytes = keccak256(concat([CREATE2_PREFIX, pad(V3_CORE_FACTORY_ADDRESSES[ChainId.ZK_SYNC], { size: 32 }), salt, POOL_INIT_CODE_HASH, ZERO_INPUT_HASH])).slice(26);
+    const addressBytes = keccak256(concat([CREATE2_PREFIX, pad(V3_CORE_FACTORY_ADDRESSES[ChainId.ZKSYNC]!, { size: 32 }), salt, POOL_INIT_CODE_HASH, ZERO_INPUT_HASH])).slice(26);
     return getAddress(`0x${addressBytes}`);
 }
