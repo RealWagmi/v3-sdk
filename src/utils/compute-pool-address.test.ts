@@ -31,7 +31,7 @@ describe('#computePoolAddress', () => {
 
     it('should correctly compute the pool address (zksync)', () => {
         const result = computePoolAddress({
-            chainId: ChainId.ZK_SYNC,
+            chainId: ChainId.ZKSYNC,
             fee: FeeAmount.LOW,
             tokenA: zkSyncTokens.weth,
             tokenB: zkSyncTokens.usdc,
