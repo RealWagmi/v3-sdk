@@ -438,4 +438,27 @@ describe('Position', () => {
             expect(amount1.toString()).toEqual('79831926243');
         });
     });
+
+    describe('#tokenId', () => {
+        it('should return tokenId', () => {
+            const tokenId = new Position({
+                pool: DAI_USDC_POOL,
+                liquidity: 100e18,
+                tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
+                tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2,
+                tokenId: 1234
+            }).tokenId;
+            expect(tokenId.toString()).toEqual('1234');
+        });
+
+        it('should return default tokenId', () => {
+            const tokenId = new Position({
+                pool: DAI_USDC_POOL,
+                liquidity: 100e18,
+                tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
+                tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2,
+            }).tokenId;
+            expect(tokenId.toString()).toEqual('-1');
+        });
+    });
 });

@@ -14,6 +14,7 @@ interface PositionConstructorArgs {
     tickLower: number;
     tickUpper: number;
     liquidity: BigintIsh;
+    tokenId?: BigintIsh;
 }
 
 /**
@@ -28,6 +29,8 @@ export class Position {
 
     public readonly liquidity: bigint;
 
+    public readonly tokenId: bigint;
+
     // cached resuts for the getters
     private _token0Amount: CurrencyAmount<Token> | null = null;
 
@@ -41,8 +44,9 @@ export class Position {
      * @param liquidity The amount of liquidity that is in the position
      * @param tickLower The lower tick of the position
      * @param tickUpper The upper tick of the position
+     * @param tokenId id of the position
      */
-    public constructor({ pool, liquidity, tickLower, tickUpper }: PositionConstructorArgs) {
+    public constructor({ pool, liquidity, tickLower, tickUpper, tokenId }: PositionConstructorArgs) {
         invariant(tickLower < tickUpper, 'TICK_ORDER');
         invariant(tickLower >= TickMath.MIN_TICK && tickLower % pool.tickSpacing === 0, 'TICK_LOWER');
         invariant(tickUpper <= TickMath.MAX_TICK && tickUpper % pool.tickSpacing === 0, 'TICK_UPPER');
@@ -51,6 +55,7 @@ export class Position {
         this.tickLower = tickLower;
         this.tickUpper = tickUpper;
         this.liquidity = BigInt(liquidity);
+        this.tokenId = BigInt(tokenId ?? -1);
     }
 
     /**
