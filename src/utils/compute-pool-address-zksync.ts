@@ -1,7 +1,7 @@
 import { Currency, ChainId } from '@real-wagmi/sdk';
 import { FeeAmount } from '../constants/misc';
 import { V3_CORE_FACTORY_ADDRESSES as DEFAULT_V3_CORE_FACTORY_ADDRESSES } from '../constants/addresses';
-import { keccak256, encodeAbiParameters, parseAbiParameters, concat, pad, getAddress, Address, Hex } from 'viem';
+import { keccak256, encodeAbiParameters, parseAbiParameters, concat, pad, getAddress, Address, Hash } from 'viem';
 
 const DEFAULT_POOL_INIT_CODE_HASH = '0x0100133fbbcc76118ded62eff4d449702d57ec281d23a1ca9d40cf3b0de80644';
 const CREATE2_PREFIX = '0x2020dba91b30cc0006188af794c2fb30dd8520db7e2c088b7fc7c103c00ca494';
@@ -11,7 +11,7 @@ interface Props {
     tokenA: Currency;
     tokenB: Currency;
     fee: FeeAmount;
-    POOL_INIT_CODE_HASH?: Hex;
+    POOL_INIT_CODE_HASH?: Hash;
     V3_CORE_FACTORY_ADDRESSES?: Address;
 }
 

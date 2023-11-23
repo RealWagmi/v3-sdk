@@ -1,7 +1,7 @@
 import { Currency, ChainId } from '@real-wagmi/sdk';
 import { FeeAmount } from '../constants/misc';
 import { V3_CORE_FACTORY_ADDRESSES as DEFAULT_V3_CORE_FACTORY_ADDRESSES } from '../constants/addresses';
-import { keccak256, encodeAbiParameters, parseAbiParameters, Address, GetCreate2AddressOptions, toBytes, getAddress, pad, isBytes, Hex, ByteArray, slice, concat } from 'viem';
+import { keccak256, encodeAbiParameters, parseAbiParameters, Address, GetCreate2AddressOptions, toBytes, getAddress, pad, isBytes, Hex, ByteArray, slice, concat, Hash } from 'viem';
 
 import { computePoolAddressZkSync } from './compute-pool-address-zksync';
 
@@ -12,11 +12,11 @@ interface Props {
     tokenA: Currency;
     tokenB: Currency;
     fee: FeeAmount;
-    POOL_INIT_CODE_HASH?: Hex;
+    POOL_INIT_CODE_HASH?: Hash;
     V3_CORE_FACTORY_ADDRESSES?: Address;
 }
 
-function getCreate2Address(from_: GetCreate2AddressOptions['from'], salt_: GetCreate2AddressOptions['salt'], initCodeHash: Hex) {
+function getCreate2Address(from_: GetCreate2AddressOptions['from'], salt_: GetCreate2AddressOptions['salt'], initCodeHash: Hash) {
     const from = toBytes(getAddress(from_));
     const salt = pad(isBytes(salt_) ? salt_ : toBytes(salt_ as Hex), {
         size: 32,
