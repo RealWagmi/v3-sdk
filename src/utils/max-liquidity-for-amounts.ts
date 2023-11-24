@@ -12,7 +12,7 @@ import { Q96 } from '../constants/misc';
  * @param amount0 The token0 amount
  * @returns liquidity for amount0, imprecise
  */
-function maxLiquidityForAmount0Imprecise(sqrtRatioAX96: bigint, sqrtRatioBX96: bigint, amount0: BigintIsh): bigint {
+export function maxLiquidityForAmount0Imprecise(sqrtRatioAX96: bigint, sqrtRatioBX96: bigint, amount0: BigintIsh): bigint {
     if (sqrtRatioAX96 > sqrtRatioBX96) {
         sqrtRatioAX96 = sqrtRatioBX96;
         sqrtRatioBX96 = sqrtRatioAX96;
@@ -29,7 +29,7 @@ function maxLiquidityForAmount0Imprecise(sqrtRatioAX96: bigint, sqrtRatioBX96: b
  * @param amount0 The token0 amount
  * @returns liquidity for amount0, precise
  */
-function maxLiquidityForAmount0Precise(sqrtRatioAX96: bigint, sqrtRatioBX96: bigint, amount0: BigintIsh): bigint {
+export function maxLiquidityForAmount0Precise(sqrtRatioAX96: bigint, sqrtRatioBX96: bigint, amount0: BigintIsh): bigint {
     if (sqrtRatioAX96 > sqrtRatioBX96) {
         sqrtRatioAX96 = sqrtRatioBX96;
         sqrtRatioBX96 = sqrtRatioAX96;
@@ -48,7 +48,7 @@ function maxLiquidityForAmount0Precise(sqrtRatioAX96: bigint, sqrtRatioBX96: big
  * @param amount1 The token1 amount
  * @returns liquidity for amount1
  */
-function maxLiquidityForAmount1(sqrtRatioAX96: bigint, sqrtRatioBX96: bigint, amount1: BigintIsh): bigint {
+export function maxLiquidityForAmount1(sqrtRatioAX96: bigint, sqrtRatioBX96: bigint, amount1: BigintIsh): bigint {
     if (sqrtRatioAX96 > sqrtRatioBX96) {
         sqrtRatioAX96 = sqrtRatioBX96;
         sqrtRatioBX96 = sqrtRatioAX96;
