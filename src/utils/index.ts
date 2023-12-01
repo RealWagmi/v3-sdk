@@ -16,3 +16,4 @@ export * from './tick-list';
 export * from './tick-math';
 export * from './encode-route-to-path';
 export * from './parse-protocol-fees';
+export * from './is-fee-amount';
