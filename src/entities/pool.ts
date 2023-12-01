@@ -10,6 +10,7 @@ import { TickMath } from '../utils/tick-math'
 import { Tick, TickConstructorArgs } from './tick'
 import { NoTickDataProvider, TickDataProvider } from './tick-data-provider'
 import { TickListDataProvider } from './tick-list-data-provider'
+import { v3PoolAbi } from '../abi/v3-pool';
 
 interface StepComputations {
   sqrtPriceStartX96: bigint
@@ -30,6 +31,8 @@ const NO_TICK_DATA_PROVIDER_DEFAULT = new NoTickDataProvider()
  * Represents a V3 pool
  */
 export class Pool {
+  public static ABI = v3PoolAbi
+
   public readonly token0: Token
 
   public readonly token1: Token
