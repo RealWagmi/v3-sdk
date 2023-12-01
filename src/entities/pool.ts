@@ -59,7 +59,6 @@ export class Pool {
     fee: FeeAmount,
   ): Address {
     return computePoolAddress({
-      chainId: tokenA.chainId,
       fee,
       tokenA,
       tokenB,

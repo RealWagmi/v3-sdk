@@ -5,7 +5,6 @@ import { fantomTokens, zkSyncTokens, ChainId, ethereumTokens} from '@real-wagmi/
 describe('#computePoolAddress', () => {
     it('should correctly compute the pool address', () => {
         const result = computePoolAddress({
-            chainId: ChainId.FANTOM,
             fee: FeeAmount.LOW,
             tokenA: fantomTokens.usdc,
             tokenB: fantomTokens.usdt,
@@ -15,13 +14,11 @@ describe('#computePoolAddress', () => {
 
     it('should correctly compute the pool address', () => {
         const resultA = computePoolAddress({
-            chainId: ChainId.FANTOM,
             fee: FeeAmount.LOW,
             tokenA: fantomTokens.usdc,
             tokenB: fantomTokens.usdt,
         });
         const resultB = computePoolAddress({
-            chainId: ChainId.FANTOM,
             fee: FeeAmount.LOW,
             tokenA: fantomTokens.usdc,
             tokenB: fantomTokens.usdt,
@@ -31,7 +28,6 @@ describe('#computePoolAddress', () => {
 
     it('should correctly compute the pool address (zksync)', () => {
         const result = computePoolAddress({
-            chainId: ChainId.ZKSYNC,
             fee: FeeAmount.LOW,
             tokenA: zkSyncTokens.weth,
             tokenB: zkSyncTokens.usdc,
@@ -41,7 +37,6 @@ describe('#computePoolAddress', () => {
 
     it('should correctly compute the pool address (POOL_INIT_CODE_HASH, V3_CORE_FACTORY_ADDRESSES)', () => {
         const result = computePoolAddress({
-            chainId: ChainId.ETHEREUM,
             fee: FeeAmount.MEDIUM,
             tokenA: ethereumTokens.weth,
             tokenB: ethereumTokens.usdt,
