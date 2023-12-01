@@ -12,7 +12,7 @@ export enum FeeAmount {
     HIGH = 10000,
 }
 
-export const FeeAmounts = [FeeAmount.ZERO, FeeAmount.LOWEST, FeeAmount.LOW, FeeAmount.MEDIUM_LOW, FeeAmount.MEDIUM, FeeAmount.HIGH];
+export const feeAmounts = [FeeAmount.ZERO, FeeAmount.LOWEST, FeeAmount.LOW, FeeAmount.MEDIUM_LOW, FeeAmount.MEDIUM, FeeAmount.HIGH];
 
 /**
  * The default factory tick spacings by fee amount.
