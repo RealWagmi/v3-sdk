@@ -43,7 +43,7 @@ export class Multipool {
     }
 
     public get pools(): string[] {
-        return this.fees.map((fee) => computePoolAddress({ chainId: this.chainId, tokenA: this.token0, tokenB: this.token1, fee}));
+        return this.fees.map((fee) => computePoolAddress({ tokenA: this.token0, tokenB: this.token1, fee}));
     }
 
     public getWithdrawalAmounts(liquidityAmount: CurrencyAmount<Currency>): CurrencyAmount<Currency>[] {
