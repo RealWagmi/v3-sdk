@@ -40,3 +40,4 @@ export const MAX_FEE = 10n ** 6n;
 export const ONE_HUNDRED_PERCENT = new Percent('1');
 export const ZERO_PERCENT = new Percent('0');
 export const Q128 = 2n ** 128n;
+export const MAX_UINT128 = Q128 - 1n;
