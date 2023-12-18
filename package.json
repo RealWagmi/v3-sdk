@@ -1,6 +1,6 @@
 {
   "name": "@real-wagmi/v3-sdk",
-  "version": "1.1.18",
+  "version": "1.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -44,7 +44,7 @@
     "vitest": "^0.34.5"
   },
   "dependencies": {
-    "@real-wagmi/sdk": "^1.1.6",
+    "@real-wagmi/sdk": "^1.2.0",
     "viem": "^1.12.2"
   }
 }
