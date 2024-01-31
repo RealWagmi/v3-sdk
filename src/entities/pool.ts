@@ -53,6 +53,8 @@ export class Pool {
 
   private _token1Price?: Price<Token, Token>
 
+  private overratedTickSpacing?: number;
+
   public static getAddress(
     tokenA: Token,
     tokenB: Token,
@@ -82,7 +84,8 @@ export class Pool {
     sqrtRatioX96: BigintIsh,
     liquidity: BigintIsh,
     tickCurrent: number,
-    ticks: TickDataProvider | (Tick | TickConstructorArgs)[] = NO_TICK_DATA_PROVIDER_DEFAULT
+    ticks: TickDataProvider | (Tick | TickConstructorArgs)[] = NO_TICK_DATA_PROVIDER_DEFAULT,
+    tickSpacing?: number
   ) {
     invariant(Number.isInteger(fee) && fee < 1_000_000, 'FEE')
 
@@ -102,6 +105,7 @@ export class Pool {
     this.liquidity = BigInt(liquidity)
     this.tickCurrent = tickCurrent
     this.tickDataProvider = Array.isArray(ticks) ? new TickListDataProvider(ticks) : ticks
+    this.overratedTickSpacing = tickSpacing;
   }
 
   /**
@@ -321,6 +325,6 @@ export class Pool {
   }
 
   public get tickSpacing(): number {
-    return TICK_SPACINGS[this.fee]
+    return this.overratedTickSpacing || TICK_SPACINGS[this.fee]
   }
 }

@@ -255,4 +255,31 @@ describe('Pool', () => {
             });
         });
     });
+
+    describe('tickSpacing', () => {
+        describe('#not overrated tick spacing', () => {
+            let pool: Pool;
+            const bigNum1 = BigInt(Number.MAX_SAFE_INTEGER) + 1n;
+            const bigNum2 = BigInt(Number.MAX_SAFE_INTEGER) + 1n;
+            beforeEach(() => {
+                pool = new Pool(USDC, DAI, FeeAmount.LOW, encodeSqrtRatioX96(bigNum1, bigNum2), ONE_ETHER, 0);
+            });
+    
+            it('should retrun tick  spacing', async () => {
+                expect(pool.tickSpacing).toEqual(TICK_SPACINGS[FeeAmount.LOW]);
+            });
+        });
+        describe('#overrated tick spacing', () => {
+            let pool: Pool;
+            const bigNum1 = BigInt(Number.MAX_SAFE_INTEGER) + 1n;
+            const bigNum2 = BigInt(Number.MAX_SAFE_INTEGER) + 1n;
+            beforeEach(() => {
+                pool = new Pool(USDC, DAI, FeeAmount.LOW, encodeSqrtRatioX96(bigNum1, bigNum2), ONE_ETHER, 0, [], 1);
+            });
+    
+            it('should retrun tick  spacing', async () => {
+                expect(pool.tickSpacing).toEqual(1);
+            });
+        });
+    });
 });
