@@ -1,7 +1,8 @@
-import { MaxUint256 } from '@real-wagmi/sdk';
+import { MaxUint256, Percent, sqrt } from '@real-wagmi/sdk';
 import invariant from 'tiny-invariant';
 import { ONE, ZERO, Q96 } from '../constants/misc';
 import { FullMath } from './full-math';
+import { Address } from 'viem';
 
 const MaxUint160 = 2n ** 160n - ONE;
 
@@ -95,5 +96,19 @@ export abstract class SqrtPriceMath {
 
         invariant(sqrtPX96 > quotient);
         return sqrtPX96 - quotient;
+    }
+
+    public static getSqrtPriceLimitX96(sqrtPX96: bigint, tokenA: Address, tokenB: Address, slippage: Percent): bigint {
+        const zeroForSaleToken = BigInt(tokenA) < BigInt(tokenB);
+        const deviation = slippage.multiply(sqrtPX96 ** 2n);
+        let sqrtPriceX96 = 0n;
+
+        if (zeroForSaleToken) {
+            sqrtPriceX96 = deviation.add(sqrtPX96 ** 2n).quotient;
+        } else {
+            sqrtPriceX96 = deviation.subtract(sqrtPX96 ** 2n).quotient;
+        }
+
+        return sqrt(sqrtPriceX96 < 0n ? sqrtPriceX96 * -1n : sqrtPriceX96);
     }
 }
