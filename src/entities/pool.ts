@@ -327,4 +327,9 @@ export class Pool {
   public get tickSpacing(): number {
     return this.overratedTickSpacing || TICK_SPACINGS[this.fee]
   }
+
+  public get address(): Address {
+    invariant(!Boolean(this.overratedTickSpacing), 'OVERRATED__TICK_SPACINGS');
+    return Pool.getAddress(this.token0, this.token1, this.tickSpacing);
+  }
 }

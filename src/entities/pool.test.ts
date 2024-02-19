@@ -282,4 +282,34 @@ describe('Pool', () => {
             });
         });
     });
+
+    describe('#address', () => {
+        it('returns pool address', () => {
+            expect(
+                new Pool(
+                    USDC,
+                    DAI,
+                    FeeAmount.LOW,
+                    encodeSqrtRatioX96(101e6, 100e18),
+                    0,
+                    TickMath.getTickAtSqrtRatio(encodeSqrtRatioX96(101e6, 100e18)),
+                ).address,
+            ).toEqual('0x1C887307de445F9D9f9b9CC98cdbcC56f87eeeb2');
+        });
+
+        it('should failed OVERRATED__TICK_SPACINGS', () => {
+            expect(
+                () => new Pool(
+                    USDC,
+                    DAI,
+                    FeeAmount.LOW,
+                    encodeSqrtRatioX96(101e6, 100e18),
+                    0,
+                    TickMath.getTickAtSqrtRatio(encodeSqrtRatioX96(101e6, 100e18)),
+                    [],
+                    30
+                ).address,
+            ).toThrowError('Invariant failed: OVERRATED__TICK_SPACINGS');
+        });
+    });
 });
