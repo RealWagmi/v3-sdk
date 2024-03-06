@@ -1485,10 +1485,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@real-wagmi/sdk@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@real-wagmi/sdk/-/sdk-1.2.0.tgz#71d260bf63acabb62ac546ddd2edaab25e148722"
-  integrity sha512-Ow55NcPh3ZqvUkwGzkWTEiNheX9Wax7EkDSLQmNY4XkiHw2xVd3QTKZnA08L7zOgRwjTSc1YyD4Yas7TPQOocw==
+"@real-wagmi/sdk@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@real-wagmi/sdk/-/sdk-1.2.5.tgz#291e2b61f5f84802f432b5d2345a15b4cc06e6cd"
+  integrity sha512-f3s7KMwrMPN3ymuNWl3riAnzoGbMTm9e8BhCpFxhNwduoRSpgQSSg6+YGZvj+VMUotwnFJBX9iYP9QWQUQaFbg==
   dependencies:
     "@uniswap/token-lists" "1.0.0-beta.33"
     big.js "^6.2.1"

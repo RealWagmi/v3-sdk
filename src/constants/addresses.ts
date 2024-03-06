@@ -15,5 +15,6 @@ export const V3_CORE_FACTORY_ADDRESSES: ChainMap<Address> = {
     [ChainId.POLYGON]: '' as Address,
     [ChainId.AVALANCHE]: '' as Address,
     [ChainId.ARBITRUM]: '' as Address,
-    [ChainId.METIS]: '0x8112E18a34b63964388a3B2984037d6a2EFE5B8A'
+    [ChainId.METIS]: '0x8112E18a34b63964388a3B2984037d6a2EFE5B8A',
+    [ChainId.BLAST]: '' as Address
 };
