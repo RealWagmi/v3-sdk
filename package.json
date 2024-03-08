@@ -9,7 +9,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
@@ -44,7 +44,7 @@
     "vitest": "^0.34.5"
   },
   "dependencies": {
-    "@real-wagmi/sdk": "^1.2.5",
-    "viem": "^1.12.2"
+    "@real-wagmi/sdk": "^1.2.6",
+    "viem": "^2.7.22"
   }
 }
