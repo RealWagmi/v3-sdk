@@ -1,4 +1,4 @@
-import { MaxUint256 } from '@real-wagmi/sdk'
+import { maxUint256 } from 'viem';
 import invariant from 'tiny-invariant'
 import { ZERO } from '../constants/misc'
 
@@ -7,7 +7,7 @@ const POWERS_OF_2 = [128, 64, 32, 16, 8, 4, 2, 1].map((pow: number): [number, bi
 
 export function mostSignificantBit(x: bigint): number {
   invariant(x > ZERO, 'ZERO')
-  invariant(x <= MaxUint256, 'MAX')
+  invariant(x <= maxUint256, 'MAX')
 
   let msb = 0
   for (const [power, min] of POWERS_OF_2) {

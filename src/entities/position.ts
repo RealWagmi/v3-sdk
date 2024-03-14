@@ -1,4 +1,4 @@
-import { BigintIsh, MaxUint256, Percent, Price, CurrencyAmount, Token } from '@real-wagmi/sdk';
+import { BigintIsh, Percent, Price, CurrencyAmount, Token } from '@real-wagmi/sdk';
 import invariant from 'tiny-invariant';
 import { ZERO } from '../constants/misc';
 import { maxLiquidityForAmounts } from '../utils/max-liquidity-for-amounts';
@@ -8,6 +8,7 @@ import { TickMath } from '../utils/tick-math';
 import { PositionMath } from '../utils/position-math';
 import { encodeSqrtRatioX96 } from '../utils/encode-sqrt-ratio-x96';
 import { Pool } from './pool';
+import { maxUint256 } from 'viem';
 
 interface PositionConstructorArgs {
     pool: Pool;
@@ -309,7 +310,7 @@ export class Position {
         amount0: BigintIsh;
         useFullPrecision: boolean;
     }) {
-        return Position.fromAmounts({ pool, tickLower, tickUpper, amount0, amount1: MaxUint256, useFullPrecision });
+        return Position.fromAmounts({ pool, tickLower, tickUpper, amount0, amount1: maxUint256, useFullPrecision });
     }
 
     /**
@@ -322,6 +323,6 @@ export class Position {
      */
     public static fromAmount1({ pool, tickLower, tickUpper, amount1 }: { pool: Pool; tickLower: number; tickUpper: number; amount1: BigintIsh }) {
         // this function always uses full precision,
-        return Position.fromAmounts({ pool, tickLower, tickUpper, amount0: MaxUint256, amount1, useFullPrecision: true });
+        return Position.fromAmounts({ pool, tickLower, tickUpper, amount0: maxUint256, amount1, useFullPrecision: true });
     }
 }

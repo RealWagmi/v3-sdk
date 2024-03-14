@@ -1,7 +1,7 @@
-import { MaxUint256 } from '@real-wagmi/sdk';
 import invariant from 'tiny-invariant';
 import { ONE, ZERO } from '../constants/misc';
 import { mostSignificantBit } from './most-significant-bit';
+import { maxUint256 } from 'viem';
 
 function mulShift(val: bigint, mulBy: string): bigint {
     return (val * BigInt(mulBy)) >> 128n;
@@ -65,7 +65,7 @@ export abstract class TickMath {
         if ((absTick & 0x40000) != 0) ratio = mulShift(ratio, '0x2216e584f5fa1ea926041bedfe98');
         if ((absTick & 0x80000) != 0) ratio = mulShift(ratio, '0x48a170391f7dc42444e8fa2');
 
-        if (tick > 0) ratio = MaxUint256 / ratio;
+        if (tick > 0) ratio = maxUint256 / ratio;
 
         // back to Q96
         return ratio % Q32 > ZERO ? ratio / Q32 + ONE : ratio / Q32;

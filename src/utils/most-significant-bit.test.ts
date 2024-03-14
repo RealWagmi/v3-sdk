@@ -1,4 +1,4 @@
-import { MaxUint256 } from '@real-wagmi/sdk';
+import { maxUint256 } from 'viem';
 import { describe, it, expect } from 'vitest';
 import { ONE } from '../constants/misc';
 import { mostSignificantBit } from './most-significant-bit';
@@ -20,11 +20,11 @@ describe('mostSignificantBit', () => {
         }
     });
 
-    it('succeeds for MaxUint256', () => {
-        expect(mostSignificantBit(MaxUint256)).toEqual(255);
+    it('succeeds for maxUint256', () => {
+        expect(mostSignificantBit(maxUint256)).toEqual(255);
     });
 
-    it('throws for MaxUint256 + 1', () => {
-        expect(() => mostSignificantBit(MaxUint256 + ONE)).toThrow('MAX');
+    it('throws for maxUint256 + 1', () => {
+        expect(() => mostSignificantBit(maxUint256 + ONE)).toThrow('MAX');
     });
 });

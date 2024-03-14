@@ -1,19 +1,17 @@
-import { MaxUint256, Percent, sqrt } from '@real-wagmi/sdk';
+import { Percent, sqrt } from '@real-wagmi/sdk';
 import invariant from 'tiny-invariant';
 import { ONE, ZERO, Q96 } from '../constants/misc';
 import { FullMath } from './full-math';
-import { Address } from 'viem';
-
-const MaxUint160 = 2n ** 160n - ONE;
+import { Address, maxUint256, maxUint160 } from 'viem';
 
 function multiplyIn256(x: bigint, y: bigint): bigint {
     const product = x * y;
-    return product & MaxUint256;
+    return product & maxUint256;
 }
 
 function addIn256(x: bigint, y: bigint): bigint {
     const sum = x + y;
-    return sum & MaxUint256;
+    return sum & maxUint256;
 }
 
 export abstract class SqrtPriceMath {
@@ -88,7 +86,7 @@ export abstract class SqrtPriceMath {
 
     private static getNextSqrtPriceFromAmount1RoundingDown(sqrtPX96: bigint, liquidity: bigint, amount: bigint, add: boolean): bigint {
         if (add) {
-            const quotient = amount <= MaxUint160 ? (amount << 96n) / liquidity : (amount * Q96) / liquidity;
+            const quotient = amount <= maxUint160 ? (amount << 96n) / liquidity : (amount * Q96) / liquidity;
 
             return sqrtPX96 + quotient;
         }
