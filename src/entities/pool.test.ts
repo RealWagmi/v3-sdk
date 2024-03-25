@@ -1,4 +1,4 @@
-import { Token, CurrencyAmount, WETH9 } from '@real-wagmi/sdk';
+import { Token, CurrencyAmount, WETH9, metisTokens } from '@real-wagmi/sdk';
 import { FeeAmount, TICK_SPACINGS } from '../constants';
 import { nearestUsableTick } from '../utils/nearest-usable-tick';
 import { TickMath } from '../utils/tick-math';
@@ -287,14 +287,14 @@ describe('Pool', () => {
         it('returns pool address', () => {
             expect(
                 new Pool(
-                    USDC,
-                    DAI,
-                    FeeAmount.LOW,
+                    metisTokens.wmetis,
+                    metisTokens.usdt,
+                    FeeAmount.MEDIUM_LOW,
                     encodeSqrtRatioX96(101e6, 100e18),
                     0,
                     TickMath.getTickAtSqrtRatio(encodeSqrtRatioX96(101e6, 100e18)),
                 ).address,
-            ).toEqual('0x1C887307de445F9D9f9b9CC98cdbcC56f87eeeb2');
+            ).toEqual('0x1d347deBF7B4c6Ef0e7fbEFd94d74F75156a16a5');
         });
 
         it('should failed OVERRATED__TICK_SPACINGS', () => {

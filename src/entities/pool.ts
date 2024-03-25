@@ -330,6 +330,6 @@ export class Pool {
 
   public get address(): Address {
     invariant(!Boolean(this.overratedTickSpacing), 'OVERRATED__TICK_SPACINGS');
-    return Pool.getAddress(this.token0, this.token1, this.tickSpacing);
+    return Pool.getAddress(this.token0, this.token1, this.fee);
   }
 }
