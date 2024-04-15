@@ -1,11 +1,7 @@
 import { ChainId } from '@real-wagmi/sdk';
 import { Address } from 'viem';
 
-export type ChainMap<T> = {
-    readonly [chainId in ChainId]: T
-}
-
-export const V3_CORE_FACTORY_ADDRESSES: ChainMap<Address> = {
+export const V3_CORE_FACTORY_ADDRESSES = {
     [ChainId.FANTOM]: '0xaf20f5f19698f1D19351028cd7103B63D30DE7d7',
     [ChainId.ZKSYNC]: '0x31be61CE896e8770B21e7A1CAFA28402Dd701995',
     [ChainId.KAVA]: '0x0e0Ce4D450c705F8a0B6Dd9d5123e3df2787D16B',
@@ -16,5 +12,6 @@ export const V3_CORE_FACTORY_ADDRESSES: ChainMap<Address> = {
     [ChainId.AVALANCHE]: '' as Address,
     [ChainId.ARBITRUM]: '' as Address,
     [ChainId.METIS]: '0x8112E18a34b63964388a3B2984037d6a2EFE5B8A',
-    [ChainId.BLAST]: '' as Address
-};
+    [ChainId.BLAST]: '' as Address,
+    [ChainId.BASE]: '' as Address
+} satisfies Record<ChainId, Address>;
