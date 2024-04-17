@@ -13,5 +13,6 @@ export const V3_CORE_FACTORY_ADDRESSES = {
     [ChainId.ARBITRUM]: '' as Address,
     [ChainId.METIS]: '0x8112E18a34b63964388a3B2984037d6a2EFE5B8A',
     [ChainId.BLAST]: '' as Address,
-    [ChainId.BASE]: '' as Address
+    [ChainId.BASE]: '' as Address,
+    [ChainId.METIS_SEPOLIA]: '0x92CC36D66e9d739D50673d1f27929a371FB83a67'
 } satisfies Record<ChainId, Address>;
