@@ -343,6 +343,30 @@ export abstract class NonfungiblePositionManager {
     }
   }
 
+  public static multiCollectCallParameters(tokenIds: BigintIsh[], recipient: Address): MethodParameters {
+    const _recipient = validateAndParseAddress(recipient);
+    const calldatas: Hex[] = tokenIds.map((tokenId) => {
+      const _tokenId = BigInt(tokenId);
+      return encodeFunctionData({
+        abi: NonfungiblePositionManager.ABI,
+        functionName: 'collect',
+        args: [
+          {
+            tokenId: _tokenId,
+            recipient: _recipient,
+            amount0Max: MaxUint128,
+            amount1Max: MaxUint128,
+          },
+        ],
+      })
+    });
+
+    return {
+      calldata: Multicall.encodeMulticall(calldatas),
+      value: toHex(0),
+    }
+  }
+
   /**
    * Produces the calldata for completely or partially exiting a position
    * @param position The position to exit
