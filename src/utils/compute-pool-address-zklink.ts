@@ -4,7 +4,7 @@ import { Address, Hash } from "viem";
 import { computePoolAddressZkSync } from './compute-pool-address-zksync';
 import { V3_CORE_FACTORY_ADDRESSES as DEFAULT_V3_CORE_FACTORY_ADDRESSES } from '../constants/addresses';
 
-const DEFAULT_POOL_INIT_CODE_HASH = '0x01000a0530ea8a76ec935bc4d2101d0a155847bb1f9b332f6c8b31ba486b1c05';
+const DEFAULT_POOL_INIT_CODE_HASH = '0x01000a05075bdcb640cf6ad926bac62b628888f09fdb49a9c42d40c8179df8e9';
 
 interface Props {
     tokenA: Currency;

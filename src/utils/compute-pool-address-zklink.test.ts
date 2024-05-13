@@ -9,7 +9,7 @@ describe('#computePoolAddressZkLink', () => {
             tokenA: zkLinkTokens.weth,
             tokenB: zkLinkTokens.usdt,
         });
-        expect(result).toEqual('0x36fAe295F19C47B79CBa5497803b55D99cBAfeaB');
+        expect(result).toEqual('0x307Fe297046cDbbd9B1De285e3a4Ad9fa702e951');
     });
 
     it('should correctly compute the pool address', () => {
