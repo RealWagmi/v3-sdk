@@ -10,3 +10,4 @@ export * from './swap-router';
 export * from './multipool-position';
 export * from './multipool';
 export * from './abi';
+export * from './position-effectivity-chart';
