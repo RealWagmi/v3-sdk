@@ -3,7 +3,6 @@ import { FeeAmount } from '../constants/misc';
 import { V3_CORE_FACTORY_ADDRESSES as DEFAULT_V3_CORE_FACTORY_ADDRESSES } from '../constants/addresses';
 import { keccak256, encodeAbiParameters, parseAbiParameters, Address, GetCreate2AddressOptions, toBytes, getAddress, pad, isBytes, Hex, ByteArray, slice, concat, Hash } from 'viem';
 import { computePoolAddressZkSync } from './compute-pool-address-zksync';
-import { computePoolAddressZkLink } from './compute-pool-address-zklink';
 import invariant from 'tiny-invariant';
 
 const DEFAULT_POOL_INIT_CODE_HASH = '0x30146866f3a846fe3c636beb2756dbd24cf321bc52c9113c837c21f47470dfeb';
@@ -29,10 +28,6 @@ export function computePoolAddress({ tokenA, tokenB, fee, POOL_INIT_CODE_HASH, V
     invariant(tokenA.chainId === tokenB.chainId, 'ChainIds must be same');
 
     const chainId = tokenA.chainId as ChainId;
-
-    if(chainId === ChainId.ZKLINK){
-        return computePoolAddressZkLink({ tokenA, tokenB, fee, POOL_INIT_CODE_HASH, V3_CORE_FACTORY_ADDRESSES });
-    }
 
     if(chainId === ChainId.ZKSYNC){
         return computePoolAddressZkSync({ tokenA, tokenB, fee, POOL_INIT_CODE_HASH, V3_CORE_FACTORY_ADDRESSES });
